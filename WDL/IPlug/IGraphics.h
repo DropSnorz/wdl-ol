@@ -193,6 +193,7 @@ public:
 
   int GetParamIdxForPTAutomation(int x, int y);
   int GetLastClickedParamForPTAutomation();
+  int GetLastClickedParam();
 
 #ifdef AAX_API
   void SetViewContainer(AAX_IViewContainer* viewContainer) { mAAXViewContainer = viewContainer; }

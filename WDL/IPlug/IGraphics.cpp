@@ -863,6 +863,8 @@ void IGraphics::OnMouseDown(int x, int y, IMouseMod* pMod)
     IControl* pControl = mControls.Get(c);
     int paramIdx = pControl->ParamIdx();
 
+	mLastClickedParam = paramIdx;
+
     #if defined OS_WIN || defined VST3_API  // on Mac, IGraphics.cpp is not compiled in a static library, so this can be #ifdef'd
     if (mPlug->GetAPI() == kAPIVST3)
     {
@@ -1075,6 +1077,10 @@ int IGraphics::GetLastClickedParamForPTAutomation()
   mLastClickedParam = -1;
 
   return idx;
+}
+
+int IGraphics::GetLastClickedParam(){
+	return mLastClickedParam;
 }
 
 void IGraphics::OnGUIIdle()
